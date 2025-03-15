@@ -1,0 +1,19 @@
+.tag-container {
+	display: flex;
+	align-items: center;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.list-item {
+	display: flex;
+	align-items: center;
+}
+
+/* добавляем разделитель после каждого элемента, кроме последнего */
+.list-item:not(:last-child)::after {
+	margin: 0 4px; /* дополнительный отступ при необходимости */
+	color: var(--foreground); /* нейтральный цвет разделителя */
+	content: ' \00B7 ';
+}
