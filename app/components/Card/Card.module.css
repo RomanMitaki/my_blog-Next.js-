@@ -1,0 +1,54 @@
+.card {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	width: 350px;
+	padding: 10px;
+	border: 1px solid #f5f5f5;
+	border-radius: 5px;
+}
+
+.image {
+	border-radius: 5px;
+}
+
+.tags-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.text-content-container {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.paragraph {
+	margin-bottom: 0;
+}
+
+.footer-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.link {
+	display: inline-flex;
+	align-items: center;
+	font-family: var(--font-open-sans), sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+	color: var(--link-color);
+	text-align: center;
+	text-decoration: none;
+}
+
+.link svg {
+	width: 20px;
+	height: 20px;
+
+	/* Отступ между текстом и иконкой */
+	margin-left: 5px;
+}
