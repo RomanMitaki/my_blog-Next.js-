@@ -1,0 +1,22 @@
+.tag {
+	box-sizing: border-box;
+	display: inline-block;
+	font-size: 12px;
+	line-height: 1;
+}
+
+.grey {
+	color: var(--foreground);
+}
+
+.darkgrey {
+	color: #4b4b4b;
+}
+
+.normal {
+	font-weight: 400;
+}
+
+.bold {
+	font-weight: 700;
+}

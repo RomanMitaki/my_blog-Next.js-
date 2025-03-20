@@ -1,0 +1,19 @@
+.p {
+	margin: 0 0 1em;
+	color: var(--foreground);
+}
+
+.small {
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.normal {
+	font-size: 16px;
+	line-height: 1.75;
+}
+
+.large {
+	font-size: 18px;
+	line-height: 1.78;
+}

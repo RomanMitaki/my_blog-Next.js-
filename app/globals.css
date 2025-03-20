@@ -1,13 +1,9 @@
 :root {
 	--background: #fff;
-	--foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background: #0a0a0a;
-		--foreground: #ededed;
-	}
+	--foreground: #6e6e6e;
+	--font-open-sans: 'Open Sans', sans-serif; /* Заглушка для IDE */
+	--foreground-header: #2c2c2c;
+	--link-color: #1473e6;
 }
 
 html,
@@ -17,8 +13,7 @@ body {
 }
 
 body {
-	font-family: Arial, Helvetica, sans-serif;
-	color: var(--foreground);
+	font-family: var(--font-open-sans), sans-serif;
 	background: var(--background);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -28,15 +23,4 @@ body {
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
-}
-
-a {
-	color: inherit;
-	text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-	html {
-		color-scheme: dark;
-	}
 }

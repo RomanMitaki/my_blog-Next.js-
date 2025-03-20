@@ -1,0 +1,13 @@
+.like {
+	display: flex;
+	gap: 4px;
+	align-items: center;
+	font-size: 12px;
+	line-height: 1.33;
+	color: var(--foreground);
+}
+
+.icon {
+	stroke: var(--foreground);
+	stroke-width: 1px;
+}
