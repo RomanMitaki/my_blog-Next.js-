@@ -1,5 +1,16 @@
+'use client';
+
 import styles from './page.module.css';
-import { Card, Htag, Like, P, Tag, TagContainer } from '@/app/components';
+import {
+	LikeButton,
+	Card,
+	Htag,
+	Like,
+	P,
+	Tag,
+	TagContainer
+} from '@/app/components';
+import { useCallback, useState } from 'react';
 
 const data = ['Front-end', '1 месяц назад', '89', 'Василий Пупкин'];
 
@@ -16,6 +27,29 @@ const cardData = {
 };
 
 export default function Home() {
+	const [liked, setLiked] = useState(false);
+
+	const handleLike = useCallback(async () => {
+		try {
+			const response = await fetch(
+				'https://jsonplaceholder.typicode.com/posts',
+				{
+					method: 'POST',
+					body: JSON.stringify({ liked: !liked }),
+					headers: { 'Content-Type': 'application/json' }
+				}
+			);
+
+			if (!response.ok) {
+				throw new Error(`Ошибка сервера: ${response.status}`);
+			}
+
+			setLiked(!liked);
+		} catch (error) {
+			console.error('Ошибка при запросе:', error);
+		}
+	}, [liked]);
+
 	return (
 		<div className={styles.page}>
 			<Htag tag="h1">Заголовок 1</Htag>
@@ -52,6 +86,7 @@ export default function Home() {
 			</Tag>
 			<TagContainer data={data} />
 			<Card data={cardData} />
+			<LikeButton liked={liked} onLike={handleLike} />
 		</div>
 	);
 }
