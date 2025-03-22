@@ -8,7 +8,8 @@ import {
 	Like,
 	P,
 	Tag,
-	TagContainer
+	TagContainer,
+	Button
 } from '@/app/components';
 import { useCallback, useState } from 'react';
 
@@ -87,6 +88,7 @@ export default function Home() {
 			<TagContainer data={data} />
 			<Card data={cardData} />
 			<LikeButton liked={liked} onLike={handleLike} />
+			<Button>Отправить</Button>
 		</div>
 	);
 }

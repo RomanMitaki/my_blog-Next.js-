@@ -16,3 +16,11 @@
 	background: #303030;
 	border: none;
 }
+
+.button:hover {
+	border-color: var(--foreground);
+}
+
+.button:hover svg {
+	stroke: var(--foreground);
+}

@@ -5,3 +5,4 @@ export * from './Like/Like';
 export * from './TagContainer/TagContainer';
 export * from './Card/Card';
 export * from './LikeButton/LikeButton';
+export * from './Button/Button';
