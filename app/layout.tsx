@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="ru" className={openSans.variable}>
-			<body>
+			<body className="container">
 				<Header />
 				<main>{children}</main>
 			</body>
