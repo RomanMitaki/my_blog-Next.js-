@@ -1,0 +1,21 @@
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 23px 10px;
+}
+
+.link {
+	font-family: var(--font-open-sans), sans-serif;
+	font-size: 40px;
+	font-weight: 300;
+	line-height: 1;
+	color: var(--foreground-header);
+	text-align: center;
+	text-decoration: none;
+	transition: all 0.2s;
+}
+
+.link:hover svg {
+	stroke: var(--foreground);
+}
