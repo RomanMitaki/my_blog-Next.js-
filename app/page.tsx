@@ -1,7 +1,8 @@
-import styles from './page.module.css';
-import { Card, Htag, Like, P, Tag, TagContainer } from '@/app/components';
+'use client';
 
-const data = ['Front-end', '1 месяц назад', '89', 'Василий Пупкин'];
+import styles from './page.module.css';
+import { LikeButton, Card, Button } from '@/app/components';
+import { useCallback, useState } from 'react';
 
 const cardData = {
 	id: '1',
@@ -15,43 +16,41 @@ const cardData = {
 	timeToRead: 9
 };
 
+const posts = new Array(6).fill(cardData);
+
 export default function Home() {
+	const [liked, setLiked] = useState(false);
+
+	const handleLike = useCallback(async () => {
+		try {
+			const response = await fetch(
+				'https://jsonplaceholder.typicode.com/posts',
+				{
+					method: 'POST',
+					body: JSON.stringify({ liked: !liked }),
+					headers: { 'Content-Type': 'application/json' }
+				}
+			);
+
+			if (!response.ok) {
+				throw new Error(`Ошибка сервера: ${response.status}`);
+			}
+
+			setLiked(!liked);
+		} catch (error) {
+			console.error('Ошибка при запросе:', error);
+		}
+	}, [liked]);
+
 	return (
 		<div className={styles.page}>
-			<Htag tag="h1">Заголовок 1</Htag>
-			<Htag tag="h2">Заголовок 2</Htag>
-			<Htag tag="h3">Заголовок 3</Htag>
-			<P size="small">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid
-				consequuntur dolores ducimus eius enim libero natus nemo nihil nostrum
-				nulla perferendis, quia sed velit voluptates voluptatum? Aliquid odit
-				sequi sint.
-			</P>
-			<P>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid
-				consequuntur dolores ducimus eius enim libero natus nemo nihil nostrum
-				nulla perferendis, quia sed velit voluptates voluptatum? Aliquid odit
-				sequi sint.
-			</P>
-			<P size="large">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid
-				consequuntur dolores ducimus eius enim libero natus nemo nihil nostrum
-				nulla perferendis, quia sed velit voluptates voluptatum? Aliquid odit
-				sequi sint.
-			</P>
-			<div>
-				<Tag color="darkgrey">Front-end</Tag>
-				<Tag>1 месяц назад</Tag>
-				<Tag weight="bold">Василий Пупкин</Tag>
+			{posts.map((data, index) => (
+				<Card key={index} data={data} />
+			))}
+			<div className={styles.btns}>
+				<LikeButton liked={liked} onLike={handleLike} />
+				<Button>Отправить</Button>
 			</div>
-			<Like count={4} />
-			<Like count={77} />
-			<Like />
-			<Tag>
-				<Like count={16} />
-			</Tag>
-			<TagContainer data={data} />
-			<Card data={cardData} />
 		</div>
 	);
 }

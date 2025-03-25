@@ -1,4 +1,12 @@
 .page {
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 350px);
+	gap: 24px;
+	justify-content: center;
+}
+
+/* Временно для теста кнопок */
+.btns {
+	width: 350px;
+	height: 400px;
 }
